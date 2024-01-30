@@ -26,6 +26,21 @@ Bien sûr, voici une expansion détaillée de chaque étape avec des indices pou
 - Importez `useState` dans `TaskList.js` avec `import React, { useState } from 'react';`.
 - Ajoutez un état local avec `const [tasks, setTasks] = useState([]);`.
 
+-    // État local pour stocker la liste des tâches
+   const [tasks, setTasks] = useState([]);
+
+   // État local pour stocker la nouvelle tâche entrée par l'utilisateur
+   const [newTask, setNewTask] = useState('');
+ 
+   // Fonction pour ajouter une tâche à la liste
+   const addTask = () => {
+     if (newTask.trim() !== '') {
+       setTasks([...tasks, { id: tasks.length + 1, text: newTask, completed: false }]);
+       setNewTask(''); // Efface le champ d'entrée après l'ajout
+     }
+   };
+  
+
 **Étape 7 : Ajout des fonctionnalités de base**
 - Dans le composant TaskList de TaskList.js, ajoutez une fonction addTask qui prend en charge l'ajout d'une nouvelle tâche à la liste.
 - Ajoutez une fonction pour ajouter une tâche avec `const addTask = () => { /* ... */ };`.
